@@ -1,4 +1,9 @@
 -- Applications
+hl.window_rule({
+    name    = "browser-opaque",
+    match   = { class = "^(firefox|zen|librewolf|chromium|google-chrome|brave-browser|helium)$" },
+    opacity = "1.0 override 0.97 override",
+})
 
 hl.window_rule({
     name  = "spotify-workspace",

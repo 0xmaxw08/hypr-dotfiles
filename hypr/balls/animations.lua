@@ -12,15 +12,16 @@ hl.curve("fluid", { type = "spring", mass = 1, stiffness = 150, dampening = 20 }
 -- Border
 hl.animation({ leaf = "border", enabled = true, speed = 5.5, bezier = "silk" })
 
--- Windows — soft spring open, smooth fade-out close (in/out now proportional to base)
-hl.animation({ leaf = "windows",    enabled = true, speed = 2.2, spring = "fluid", style = "popin 82%" })
-hl.animation({ leaf = "windowsIn",  enabled = true, speed = 2.4, spring = "fluid", style = "popin 82%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.8, bezier = "smoothDecel", style = "popin 82%" })
+-- Windows: slide up from bottom on open, slide down on close
+hl.animation({ leaf = "windows",     enabled = true, speed = 2.4, spring = "fluid", style = "popin 82%" })
+hl.animation({ leaf = "windowsIn",   enabled = true, speed = 2.4, spring = "fluid", style = "slide bottom" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 4.0, bezier = "softEase", style = "slide bottom" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 2.4, spring = "fluid" })
 
--- Fade
-hl.animation({ leaf = "fadeIn",  enabled = true, speed = 3.8, bezier = "gentleFade" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 3.2, bezier = "gentleFade" })
-hl.animation({ leaf = "fade",    enabled = true, speed = 3.5, bezier = "quick" })
+-- Fade (timed to match the slides)
+hl.animation({ leaf = "fadeIn",  enabled = true, speed = 3.0, bezier = "gentleFade" })
+hl.animation({ leaf = "fadeOut",    enabled = true, speed = 4.0, bezier = "gentleFade" })
+hl.animation({ leaf = "fade",    enabled = true, speed = 3.0, bezier = "gentleFade" })
 
 -- Layers (menus, popups, notifications)
 hl.animation({ leaf = "layers",        enabled = true, speed = 4.2, bezier = "silk" })
